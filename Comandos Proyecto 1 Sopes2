@@ -1,0 +1,10 @@
+
+sudo socat -d -d -d -v -x PTY,link=/home/jpmazate/puertosSeriales/interface1,mode=777,unlink-close,raw,echo=0 PTY,link=/home/jpmazate/puertosSeriales/interface2,mode=777,unlink-close,raw,echo=0
+
+
+touch /home/jpmazate/puertosSeriales/interface1
+touch /home/jpmazate/puertosSeriales/interface2
+socat pty,link=/home/jpmazate/puertosSeriales/interface1,raw,echo=0 pty,link=/home/jpmazate/puertosSeriales/interface2,raw,echo=0
+
+
+g++ -pthread -g main.cpp -o chat
